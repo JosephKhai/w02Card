@@ -1,21 +1,69 @@
 package com.example.w02card
 
-class Card {
-    val rank: String = "card name1"
-    val suit: String = "card name2"
-    val flip: Boolean = true
+import kotlin.random.Random
 
+enum class Suit
+{
+    HEARTS, DIAMOND, CLUBS, SPADES
+}
+
+enum class Rank
+{
+    ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING
+}
+
+/*
+class Card (var suit: Suit, var rank: Rank){
+    var flip: Boolean = true;
 
     fun flip(){
-       if (flip){
-           printDetails()
-       }else{
-           print("------")
-       }
+        //set flip with the opposite of currently
+        flip = !flip;
     }
 
     fun printDetails(){
-        println("rank: $rank suit: $suit")
+        if (flip){
+            println("Rank: $rank Suit: $suit");
+        }else{
+            print("------");
+        }
+
+    }
+
+}
+*/
+
+
+
+class Card {
+    var flip: Boolean = true
+    var suit: Suit
+    var rank: Rank
+
+    constructor(fsuit: Suit, frank: Rank){
+        rank = frank
+        suit = fsuit
+    }
+    constructor(): this(Suit.values()[Random.nextInt(0, 4)], Rank.values()[Random.nextInt(0, 12)]){
+
+    }
+
+    init {
+        suit = Suit.values()[Random.nextInt(0, 4)]
+        rank = Rank.values()[Random.nextInt(0, 12)]
+    }
+    fun flip(){
+        //set flip with the opposite of currently
+        flip = !flip
+    }
+
+    fun printDetails(){
+        if (flip){
+            println("Suit: $suit Rank: $rank ")
+        }else{
+            print("------")
+        }
+
     }
 
 }
