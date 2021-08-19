@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">w02Card</string>
+    <string name="ace_heart">ACE HEART</string>
+    <string name="button">Button</string>
 </resources>

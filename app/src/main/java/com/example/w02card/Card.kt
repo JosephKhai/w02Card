@@ -34,17 +34,20 @@ class Card (var suit: Suit, var rank: Rank){
 */
 
 
-
 class Card {
     var flip: Boolean = true
     var suit: Suit
     var rank: Rank
 
-    constructor(fsuit: Suit, frank: Rank){
+    constructor(fsuit: Suit, frank: Rank) {
         rank = frank
         suit = fsuit
     }
-    constructor(): this(Suit.values()[Random.nextInt(0, 4)], Rank.values()[Random.nextInt(0, 12)]){
+
+    constructor() : this(
+        Suit.values()[Random.nextInt(0, 4)],
+        Rank.values()[Random.nextInt(0, 12)]
+    ) {
 
     }
 
@@ -52,18 +55,28 @@ class Card {
         suit = Suit.values()[Random.nextInt(0, 4)]
         rank = Rank.values()[Random.nextInt(0, 12)]
     }
-    fun flip(){
+
+    fun flip() {
         //set flip with the opposite of currently
         flip = !flip
     }
 
-    fun printDetails(){
+    fun getDetails(): String {
+        /*
         if (flip){
             println("Suit: $suit Rank: $rank ")
         }else{
             print("------")
         }
 
+        */
+        if (flip) return "$suit $rank"
+        return "..."
+
     }
 
+
 }
+
+
+
